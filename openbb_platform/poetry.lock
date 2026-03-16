@@ -257,7 +257,7 @@ description = "ARCH for Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "arch-7.2.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ae119847fae37bbbf7273b4aa1f709f49d4637497ab6a4d7e76417eb94cae4af"},
     {file = "arch-7.2.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:cb3cb8bcf7f28e3a18d4e2b6cb661a8dd883af844277633ebe533ee1df2cc12a"},
@@ -339,16 +339,16 @@ files = [
 
 [[package]]
 name = "authlib"
-version = "1.6.5"
+version = "1.6.9"
 description = "The ultimate Python library in building OAuth and OpenID Connect servers and clients."
-optional = true
+optional = false
 python-versions = ">=3.9"
-groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+groups = ["main", "dev"]
 files = [
-    {file = "authlib-1.6.5-py2.py3-none-any.whl", hash = "sha256:3e0e0507807f842b02175507bdee8957a1d5707fd4afb17c32fb43fee90b6e3a"},
-    {file = "authlib-1.6.5.tar.gz", hash = "sha256:6aaf9c79b7cc96c900f0b284061691c5d4e61221640a948fe690b556a6d6d10b"},
+    {file = "authlib-1.6.9-py2.py3-none-any.whl", hash = "sha256:f08b4c14e08f0861dc18a32357b33fbcfd2ea86cfe3fe149484b4d764c4a0ac3"},
+    {file = "authlib-1.6.9.tar.gz", hash = "sha256:d8f2421e7e5980cc1ddb4e32d3f5fa659cfaf60d8eaf3281ebed192e4ab74f04"},
 ]
+markers = {main = "python_version >= \"3.10\""}
 
 [package.dependencies]
 cryptography = "*"
@@ -571,7 +571,7 @@ version = "2.0.0"
 description = "Foreign Function Interface for Python calling C code."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["main", "dev"]
 files = [
     {file = "cffi-2.0.0-cp310-cp310-macosx_10_13_x86_64.whl", hash = "sha256:0cf2d91ecc3fcc0625c2c530fe004f82c110405f101548512cce44322fa8ac44"},
     {file = "cffi-2.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:f73b96c41e3b2adedc34a7356e64c8eb96e03a3782b535e043a986276ce12a49"},
@@ -658,6 +658,7 @@ files = [
     {file = "cffi-2.0.0-cp39-cp39-win_amd64.whl", hash = "sha256:b882b3df248017dba09d6b16defe9b5c407fe32fc7c65a9c69798e6175601be9"},
     {file = "cffi-2.0.0.tar.gz", hash = "sha256:44d1b5909021139fe36001ae048dbdde8214afa20200eda0f64c068cac5d5529"},
 ]
+markers = {dev = "platform_python_implementation != \"PyPy\""}
 
 [package.dependencies]
 pycparser = {version = "*", markers = "implementation_name != \"PyPy\""}
@@ -790,7 +791,7 @@ description = "Cross-platform colored terminal text."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 groups = ["main"]
-markers = "(extra == \"stockgrid\" or extra == \"all\") and sys_platform == \"win32\" or platform_system == \"Windows\""
+markers = "(extra == \"all\" or extra == \"stockgrid\") and sys_platform == \"win32\" or platform_system == \"Windows\""
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -820,10 +821,9 @@ dev = ["black", "flake8", "mypy", "pytest", "pytest-cov", "types-urllib3"]
 name = "cryptography"
 version = "46.0.2"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
-optional = true
+optional = false
 python-versions = "!=3.9.0,!=3.9.1,>=3.8"
-groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+groups = ["main", "dev"]
 files = [
     {file = "cryptography-46.0.2-cp311-abi3-macosx_10_9_universal2.whl", hash = "sha256:f3e32ab7dd1b1ef67b9232c4cf5e2ee4cd517d4316ea910acaaa9c5712a1c663"},
     {file = "cryptography-46.0.2-cp311-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:1fd1a69086926b623ef8126b4c33d5399ce9e2f3fac07c9c734c2a4ec38b6d02"},
@@ -880,6 +880,7 @@ files = [
     {file = "cryptography-46.0.2-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:c4b93af7920cdf80f71650769464ccf1fb49a4b56ae0024173c24c48eb6b1612"},
     {file = "cryptography-46.0.2.tar.gz", hash = "sha256:21b6fc8c71a3f9a604f028a329e5560009cc4a3a828bfea5fcba8eb7647d88fe"},
 ]
+markers = {main = "python_version >= \"3.10\""}
 
 [package.dependencies]
 cffi = {version = ">=2.0.0", markers = "python_full_version >= \"3.9.0\" and platform_python_implementation != \"PyPy\""}
@@ -953,7 +954,7 @@ description = "Intuitive, easy CLIs based on type hints."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "cyclopts-3.24.0-py3-none-any.whl", hash = "sha256:809d04cde9108617106091140c3964ee6fceb33cecdd537f7ffa360bde13ed71"},
     {file = "cyclopts-3.24.0.tar.gz", hash = "sha256:de6964a041dfb3c57bf043b41e68c43548227a17de1bad246e3a0bfc5c4b7417"},
@@ -978,7 +979,7 @@ description = "The Cython compiler for writing C extensions in the Python langua
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "cython-3.1.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:523110241408ef6511d897e9cebbdffb99120ac82ef3aea89baacce290958f93"},
     {file = "cython-3.1.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:fd34f960c3809fa2a7c3487ce9b3cb2c5bbc5ae2107f073a1a51086885958881"},
@@ -1120,7 +1121,7 @@ description = "DNS toolkit"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "dnspython-2.8.0-py3-none-any.whl", hash = "sha256:01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af"},
     {file = "dnspython-2.8.0.tar.gz", hash = "sha256:181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"},
@@ -1142,7 +1143,7 @@ description = "Parse Python docstrings in reST, Google and Numpydoc format"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "docstring_parser-0.17.0-py3-none-any.whl", hash = "sha256:cf2569abd23dce8099b300f9b4fa8191e9582dda731fd533daf54c4551658708"},
     {file = "docstring_parser-0.17.0.tar.gz", hash = "sha256:583de4a309722b3315439bb31d64ba3eebada841f2e2cee23b99df001434c912"},
@@ -1160,7 +1161,7 @@ description = "Docutils -- Python Documentation Utilities"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "docutils-0.22.2-py3-none-any.whl", hash = "sha256:b0e98d679283fc3bb0ead8a5da7f501baa632654e7056e9c5846842213d674d8"},
     {file = "docutils-0.22.2.tar.gz", hash = "sha256:9fdb771707c8784c8f2728b67cb2c691305933d68137ef95a75db5f4dfbc213d"},
@@ -1173,7 +1174,7 @@ description = "A robust email address syntax and deliverability validation libra
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "email_validator-2.3.0-py3-none-any.whl", hash = "sha256:80f13f623413e6b197ae73bb10bf4eb0908faf509ad8362c5edeb0be7fd450b4"},
     {file = "email_validator-2.3.0.tar.gz", hash = "sha256:9fc05c37f2f6cf439ff414f8fc46d917929974a82244c20eb10231ba60c54426"},
@@ -1202,7 +1203,7 @@ description = "Backport of PEP 654 (exception groups)"
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "extra == \"mcp-server\" or extra == \"all\" or python_version <= \"3.10\""
+markers = "extra == \"all\" or extra == \"mcp-server\" or python_version <= \"3.10\""
 files = [
     {file = "exceptiongroup-1.3.0-py3-none-any.whl", hash = "sha256:4d111e6e0c13d0644cad6ddaa7ed0261a0b36971f6d23e7ec9b4b9097da78a10"},
     {file = "exceptiongroup-1.3.0.tar.gz", hash = "sha256:b241f5885f560bc56a59ee63ca4c6a8bfa46ae4ad651af316d4e81817bb9fd88"},
@@ -1221,7 +1222,7 @@ description = "Calendars for securities exchanges"
 optional = true
 python-versions = "~=3.9"
 groups = ["main"]
-markers = "python_version < \"3.10\" and (extra == \"tmx\" or extra == \"all\")"
+markers = "python_version < \"3.10\" and (extra == \"all\" or extra == \"tmx\")"
 files = [
     {file = "exchange_calendars-4.5.6-py3-none-any.whl", hash = "sha256:5abf5ebcb8ceef0ced36fe4e20071d42517091bf081e6c44354cb343009d672b"},
     {file = "exchange_calendars-4.5.6.tar.gz", hash = "sha256:5db77178cf849f81dd6dcc99995e2163b928c0f45dcd0a2c395958beb1dbb145"},
@@ -1245,7 +1246,7 @@ description = "Calendars for securities exchanges"
 optional = true
 python-versions = "~=3.10"
 groups = ["main"]
-markers = "(extra == \"tmx\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"tmx\") and python_version >= \"3.10\""
 files = [
     {file = "exchange_calendars-4.11.1-py3-none-any.whl", hash = "sha256:40ec771589e5a9b96b9e09667cd0f3fde7c70444e3a7530b8989ebd0750ee478"},
     {file = "exchange_calendars-4.11.1.tar.gz", hash = "sha256:bdaf000c3c5a0087341e1fdfe063182d27585bdba3f1a3d0189a13bdb4afea5d"},
@@ -1291,7 +1292,7 @@ description = "Fastest Python implementation of JSON schema"
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "fastjsonschema-2.21.2-py3-none-any.whl", hash = "sha256:1c797122d0a86c5cace2e54bf4e819c36223b552017172f32c5c024a6b77e463"},
     {file = "fastjsonschema-2.21.2.tar.gz", hash = "sha256:b1eb43748041c880796cd077f1a07c3d94e93ae84bba5ed36800a33554ae05de"},
@@ -1307,7 +1308,7 @@ description = "The fast, Pythonic way to build MCP servers and clients."
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "fastmcp-2.12.4-py3-none-any.whl", hash = "sha256:56188fbbc1a9df58c537063f25958c57b5c4d715f73e395c41b51550b247d140"},
     {file = "fastmcp-2.12.4.tar.gz", hash = "sha256:b55fe89537038f19d0f4476544f9ca5ac171033f61811cc8f12bdeadcbea5016"},
@@ -1337,7 +1338,7 @@ description = "Finviz Finance. Information downloader."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"finviz\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"finviz\""
 files = [
     {file = "finvizfinance-1.2.0-py3-none-any.whl", hash = "sha256:f7a53943108cf2e5554fc0d8cf8d39152aab1fbfc29fe3d971ea4e24583c1a8d"},
     {file = "finvizfinance-1.2.0.tar.gz", hash = "sha256:f3906fa899ccfa34e0e77fc449f8e5e3ba95d7b4f6b466ac4603fab793c193dd"},
@@ -1356,7 +1357,7 @@ description = "An implementation of Wilkinson formulas."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "formulaic-1.2.1-py3-none-any.whl", hash = "sha256:661d6d2467aa961b9afb3a1e2a187494239793c63eb729e422d1307afa98b43b"},
     {file = "formulaic-1.2.1.tar.gz", hash = "sha256:dc79476baa2d811b35798893eb2f2c1e51edee8d7a9c1429b400e56f4e0beccc"},
@@ -1386,7 +1387,7 @@ description = "Let your Python tests travel through time"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "freezegun-1.5.5-py3-none-any.whl", hash = "sha256:cd557f4a75cf074e84bc374249b9dd491eaeacd61376b9eb3c423282211619d2"},
     {file = "freezegun-1.5.5.tar.gz", hash = "sha256:ac7742a6cc6c25a2c35e9292dfd554b897b517d2dec26891a2e8debf205cb94a"},
@@ -1649,7 +1650,7 @@ description = "A minimal low-level HTTP client."
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "httpcore-1.0.9-py3-none-any.whl", hash = "sha256:2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"},
     {file = "httpcore-1.0.9.tar.gz", hash = "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"},
@@ -1672,7 +1673,7 @@ description = "The next generation HTTP client."
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
     {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
@@ -1698,7 +1699,7 @@ description = "Consume Server-Sent Event (SSE) messages with HTTPX."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "httpx_sse-0.4.2-py3-none-any.whl", hash = "sha256:a9fa4afacb293fa50ef9bacb6cae8287ba5fd1f4b1c2d10a35bb981c41da31ab"},
     {file = "httpx_sse-0.4.2.tar.gz", hash = "sha256:5bb6a2771a51e6c7a5f5c645e40b8a5f57d8de708f46cb5f3868043c3c18124e"},
@@ -1750,7 +1751,7 @@ description = "A port of Ruby on Rails inflector to Python"
 optional = true
 python-versions = ">=3.5"
 groups = ["main"]
-markers = "extra == \"nasdaq\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"nasdaq\""
 files = [
     {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
     {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
@@ -1763,7 +1764,7 @@ description = "brain-dead simple config-ini parsing"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"},
     {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
@@ -1795,7 +1796,7 @@ description = "`interface_meta` provides a convenient way to expose an extensibl
 optional = true
 python-versions = ">=3.7,<4.0"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "interface_meta-1.3.0-py3-none-any.whl", hash = "sha256:de35dc5241431886e709e20a14d6597ed07c9f1e8b4bfcffde2190ca5b700ee8"},
     {file = "interface_meta-1.3.0.tar.gz", hash = "sha256:8a4493f8bdb73fb9655dcd5115bc897e207319e36c8835f39c516a2d7e9d79a1"},
@@ -1808,7 +1809,7 @@ description = "An ISO 8601 date/time/duration parser and formatter"
 optional = true
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "isodate-0.7.2-py3-none-any.whl", hash = "sha256:28009937d8031054830160fce6d409ed342816b543597cece116d966c6d99e15"},
     {file = "isodate-0.7.2.tar.gz", hash = "sha256:4cd1aa0f43ca76f4a6c6c0292a85f40b35ec2e43e315b59f06e6d32171a953e6"},
@@ -1833,7 +1834,7 @@ description = "Lightweight pipelining with Python functions"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"technical\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"technical\""
 files = [
     {file = "joblib-1.5.2-py3-none-any.whl", hash = "sha256:4e1f0bdbb987e6d843c70cf43714cb276623def372df3c22fe5266b2670bc241"},
     {file = "joblib-1.5.2.tar.gz", hash = "sha256:3faa5c39054b2f03ca547da9b2f52fde67c06240c31853f306aea97f13647b55"},
@@ -1846,7 +1847,7 @@ description = "An implementation of JSON Schema validation for Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"charting\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"charting\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"charting\") and python_version >= \"3.10\""
 files = [
     {file = "jsonschema-4.25.1-py3-none-any.whl", hash = "sha256:3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63"},
     {file = "jsonschema-4.25.1.tar.gz", hash = "sha256:e4a9655ce0da0c0b67a085847e00a3a51449e1157f4f75e9fb5aa545e122eb85"},
@@ -1869,7 +1870,7 @@ description = "JSONSchema Spec with object-oriented paths"
 optional = true
 python-versions = "<4.0.0,>=3.8.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "jsonschema_path-0.3.4-py3-none-any.whl", hash = "sha256:f502191fdc2b22050f9a81c9237be9d27145b9001c55842bece5e94e382e52f8"},
     {file = "jsonschema_path-0.3.4.tar.gz", hash = "sha256:8365356039f16cc65fddffafda5f58766e34bebab7d6d105616ab52bc4297001"},
@@ -1888,7 +1889,7 @@ description = "The JSON Schema meta-schemas and vocabularies, exposed as a Regis
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"charting\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"charting\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"charting\") and python_version >= \"3.10\""
 files = [
     {file = "jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"},
     {file = "jsonschema_specifications-2025.9.1.tar.gz", hash = "sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"},
@@ -1904,7 +1905,7 @@ description = "Jupyter core package. A base package on which Jupyter projects re
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "jupyter_core-5.8.1-py3-none-any.whl", hash = "sha256:c28d268fc90fb53f1338ded2eb410704c5449a358406e8a948b75706e24863d0"},
     {file = "jupyter_core-5.8.1.tar.gz", hash = "sha256:0a5f9706f70e64786b75acba995988915ebd4601c8a52e534a40b51c95f59941"},
@@ -1941,7 +1942,7 @@ description = "Korean Lunar Calendar"
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "extra == \"tmx\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"tmx\""
 files = [
     {file = "korean_lunar_calendar-0.3.1-py3-none-any.whl", hash = "sha256:392757135c492c4f42a604e6038042953c35c6f449dda5f27e3f86a7f9c943e5"},
     {file = "korean_lunar_calendar-0.3.1.tar.gz", hash = "sha256:eb2c485124a061016926bdea6d89efdf9b9fdbf16db55895b6cf1e5bec17b857"},
@@ -1954,7 +1955,7 @@ description = "A fast and thorough lazy object proxy."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "lazy_object_proxy-1.12.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:61d5e3310a4aa5792c2b599a7a78ccf8687292c8eb09cf187cca8f09cf6a7519"},
     {file = "lazy_object_proxy-1.12.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c1ca33565f698ac1aece152a10f432415d1a2aa9a42dfe23e5ba2bc255ab91f6"},
@@ -2009,7 +2010,7 @@ description = "Linear Panel, Instrumental Variable, Asset Pricing, and System Re
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "linearmodels-6.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c9ab6f960fbd3060bccd28a20d9d4e29acda09158c1577e930c8c862af51a4a7"},
     {file = "linearmodels-6.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:263e4d2bda42240a0e380a806296ca54bb5f1e10a293f81b8a2a142f7b6512d3"},
@@ -2061,7 +2062,7 @@ description = "lightweight wrapper around basic LLVM functionality"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"3.10\" and (extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
+markers = "python_version < \"3.10\" and (extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
 files = [
     {file = "llvmlite-0.43.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:a289af9a1687c6cf463478f0fa8e8aa3b6fb813317b0d70bf1ed0759eab6f761"},
     {file = "llvmlite-0.43.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:6d4fd101f571a31acb1559ae1af30f30b1dc4b3186669f92ad780e17c81e91bc"},
@@ -2093,7 +2094,7 @@ description = "lightweight wrapper around basic LLVM functionality"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
 files = [
     {file = "llvmlite-0.45.1-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:1b1af0c910af0978aa55fa4f60bbb3e9f39b41e97c2a6d94d199897be62ba07a"},
     {file = "llvmlite-0.45.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:02a164db2d79088bbd6e0d9633b4fe4021d6379d7e4ac7cc85ed5f44b06a30c5"},
@@ -2292,7 +2293,7 @@ description = "Python port of markdown-it. Markdown parsing, done right!"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147"},
     {file = "markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"},
@@ -2317,7 +2318,7 @@ description = "Safely add untrusted strings to HTML/XML markup."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "markupsafe-3.0.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:2f981d352f04553a7171b8e44369f2af4055f888dfb147d55e42d29e29e74559"},
     {file = "markupsafe-3.0.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e1c1493fb6e50ab01d20a22826e57520f1284df32f2d8601fdd90b6304601419"},
@@ -2417,7 +2418,7 @@ description = "Model Context Protocol SDK"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "mcp-1.16.0-py3-none-any.whl", hash = "sha256:ec917be9a5d31b09ba331e1768aa576e0af45470d657a0319996a20a57d7d633"},
     {file = "mcp-1.16.0.tar.gz", hash = "sha256:39b8ca25460c578ee2cdad33feeea122694cfdf73eef58bee76c42f6ef0589df"},
@@ -2448,7 +2449,7 @@ description = "Markdown URL utilities"
 optional = true
 python-versions = ">=3.7"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
@@ -2461,7 +2462,7 @@ description = "More routines for operating on iterables, beyond itertools"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"nasdaq\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"nasdaq\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"nasdaq\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"nasdaq\") and python_version >= \"3.10\""
 files = [
     {file = "more_itertools-10.8.0-py3-none-any.whl", hash = "sha256:52d4362373dcf7c52546bc4af9a86ee7c4579df9a8dc268be0a2f949d376cc9b"},
     {file = "more_itertools-10.8.0.tar.gz", hash = "sha256:f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"},
@@ -2644,7 +2645,7 @@ description = "Type system extensions for programs checked with the mypy type ch
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"},
     {file = "mypy_extensions-1.1.0.tar.gz", hash = "sha256:52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558"},
@@ -2657,7 +2658,7 @@ description = "Extremely lightweight compatibility layer between dataframe libra
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or extra == \"econometrics\""
+markers = "extra == \"all\" or extra == \"charting\" or extra == \"econometrics\""
 files = [
     {file = "narwhals-2.7.0-py3-none-any.whl", hash = "sha256:010791aa0cee86d90bf2b658264aaec3eeea34fb4ddf2e83746ea4940bcffae3"},
     {file = "narwhals-2.7.0.tar.gz", hash = "sha256:e3fff7f1610fd3318ede78c969bc5954ce710d585eefdb689586fb69da3da43c"},
@@ -2683,7 +2684,7 @@ description = "Package for Nasdaq Data Link API access"
 optional = true
 python-versions = ">= 3.7"
 groups = ["main"]
-markers = "extra == \"nasdaq\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"nasdaq\""
 files = [
     {file = "Nasdaq Data Link-1.0.4.tar.gz", hash = "sha256:7beae38ff0b376db24a50d6b8445c94832ebdd88737f6aafbc81a7dbdda25ca1"},
     {file = "Nasdaq_Data_Link-1.0.4-py2.py3-none-any.whl", hash = "sha256:214a620551da1c7521476839fb96f932234d4d78e7ba44310722709ca37b0691"},
@@ -2705,7 +2706,7 @@ description = "The Jupyter Notebook format"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "nbformat-5.10.4-py3-none-any.whl", hash = "sha256:3b48d6c8fbca4b299bf3982ea7db1af21580e4fec269ad087b9e81588891200b"},
     {file = "nbformat-5.10.4.tar.gz", hash = "sha256:322168b14f937a5d11362988ecac2a4952d3d8e3a2cbeb2319584631226d5b3a"},
@@ -2728,7 +2729,7 @@ description = "compiling Python code using LLVM"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"3.10\" and (extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
+markers = "python_version < \"3.10\" and (extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
 files = [
     {file = "numba-0.60.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:5d761de835cd38fb400d2c26bb103a2726f548dc30368853121d66201672e651"},
     {file = "numba-0.60.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:159e618ef213fba758837f9837fb402bbe65326e60ba0633dbe6c7f274d42c1b"},
@@ -2764,7 +2765,7 @@ description = "compiling Python code using LLVM"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
 files = [
     {file = "numba-0.62.1-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:a323df9d36a0da1ca9c592a6baaddd0176d9f417ef49a65bb81951dce69d941a"},
     {file = "numba-0.62.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e1e1f4781d3f9f7c23f16eb04e76ca10b5a3516e959634bd226fc48d5d8e7a0a"},
@@ -3007,7 +3008,7 @@ description = "client-side and server-side support for the OpenAPI Specification
 optional = true
 python-versions = "<4.0.0,>=3.8.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "openapi_core-0.19.5-py3-none-any.whl", hash = "sha256:ef7210e83a59394f46ce282639d8d26ad6fc8094aa904c9c16eb1bac8908911f"},
     {file = "openapi_core-0.19.5.tar.gz", hash = "sha256:421e753da56c391704454e66afe4803a290108590ac8fa6f4a4487f4ec11f2d3"},
@@ -3040,7 +3041,7 @@ description = "Pydantic OpenAPI schema implementation"
 optional = true
 python-versions = "<4.0,>=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "openapi_pydantic-0.5.1-py3-none-any.whl", hash = "sha256:a3a09ef4586f5bd760a8df7f43028b60cafb6d9f61de2acba9574766255ab146"},
     {file = "openapi_pydantic-0.5.1.tar.gz", hash = "sha256:ff6835af6bde7a459fb93eb93bb92b8749b754fc6e51b2f1590a19dc3005ee0d"},
@@ -3056,7 +3057,7 @@ description = "OpenAPI schema validation for Python"
 optional = true
 python-versions = "<4.0.0,>=3.8.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "openapi_schema_validator-0.6.3-py3-none-any.whl", hash = "sha256:f3b9870f4e556b5a62a1c39da72a6b4b16f3ad9c73dc80084b1b11e74ba148a3"},
     {file = "openapi_schema_validator-0.6.3.tar.gz", hash = "sha256:f37bace4fc2a5d96692f4f8b31dc0f8d7400fd04f3a937798eaf880d425de6ee"},
@@ -3074,7 +3075,7 @@ description = "OpenAPI 2.0 (aka Swagger) and OpenAPI 3 spec validator"
 optional = true
 python-versions = "<4.0.0,>=3.8.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "openapi_spec_validator-0.7.2-py3-none-any.whl", hash = "sha256:4bbdc0894ec85f1d1bea1d6d9c8b2c3c8d7ccaa13577ef40da9c006c9fd0eb60"},
     {file = "openapi_spec_validator-0.7.2.tar.gz", hash = "sha256:cc029309b5c5dbc7859df0372d55e9d1ff43e96d678b9ba087f7c56fc586f734"},
@@ -3093,7 +3094,7 @@ description = "Alpha Vantage extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"alpha-vantage\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"alpha-vantage\""
 files = [
     {file = "openbb_alpha_vantage-1.5.0-py3-none-any.whl", hash = "sha256:4cc9d58bedbec31ce6c88ad98ba6b5fa55462ae8f51a18d392a8353f0d2012bd"},
     {file = "openbb_alpha_vantage-1.5.0.tar.gz", hash = "sha256:132d5ea5f952fee820c19c704119c03025f5221ad8829feaffd9901a906c6575"},
@@ -3124,7 +3125,7 @@ description = "Biztoc Provider for OpenBB Platform"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"biztoc\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"biztoc\""
 files = [
     {file = "openbb_biztoc-1.5.0-py3-none-any.whl", hash = "sha256:91d72c8df87316af2a300f4882a734fde99a95723c02d4054a8c598feea0d7bd"},
     {file = "openbb_biztoc-1.5.0.tar.gz", hash = "sha256:128f13ec5b052f362318c3b2c4d277432e8776b6332dbf60c9e62209f9b168b9"},
@@ -3155,7 +3156,7 @@ description = "CBOE extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"cboe\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"cboe\""
 files = [
     {file = "openbb_cboe-1.5.0-py3-none-any.whl", hash = "sha256:2ec50b7195950423076805d363d2807e18603d7b47583cab3afbb98f5896129a"},
     {file = "openbb_cboe-1.5.0.tar.gz", hash = "sha256:abd4bc844741261804ffdb1c0c306c91cb308cd8faef3cc3a9ecd6e13a979acf"},
@@ -3188,7 +3189,7 @@ description = "Charting extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "openbb_charting-2.4.0-py3-none-any.whl", hash = "sha256:137f130094bd20b822a8af8355b7e9d2c3f9a1373d5495800f8e26b6bbf33120"},
     {file = "openbb_charting-2.4.0.tar.gz", hash = "sha256:522c8f8a039562dd7d25c675a399956969959e2e157cab7ba9e720e6431ab4ec"},
@@ -3298,7 +3299,7 @@ description = "Deribit is a crypto-native derivatives exchange."
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"deribit\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"deribit\""
 files = [
     {file = "openbb_deribit-1.1.0-py3-none-any.whl", hash = "sha256:f5ada77085f69d8e44dfdf0a7dccfe112e0eeb9651d7f93614d83a50a674adfc"},
     {file = "openbb_deribit-1.1.0.tar.gz", hash = "sha256:f581f466db1f4047864fb5654fd5f5ab7569f02adcb2f0ac69133805b1886c23"},
@@ -3330,7 +3331,7 @@ description = "ECB extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"ecb\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"ecb\""
 files = [
     {file = "openbb_ecb-1.5.0-py3-none-any.whl", hash = "sha256:cd7f8fefbe1d5cd20dded5179a693702306c4ed9bd5f1d5c2de95e2e0c68f703"},
     {file = "openbb_ecb-1.5.0.tar.gz", hash = "sha256:b3df1b0faef4f21fe13d5f9a26ca635b6b51717f45494e5012869ceb96454667"},
@@ -3364,7 +3365,7 @@ description = "Econometrics Toolkit for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "openbb_econometrics-1.6.0-py3-none-any.whl", hash = "sha256:f7c79ae6f06054033a5bdf66ad3e278d0be48c5e87dabcdb2886214772201d91"},
     {file = "openbb_econometrics-1.6.0.tar.gz", hash = "sha256:5c6224f5f7d248704a67bddb70be6878d949802c43a0512645692a50b0ee5735"},
@@ -3428,7 +3429,7 @@ description = "Fama-French data integration for OpenBB Platform."
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"famafrench\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"famafrench\""
 files = [
     {file = "openbb_famafrench-1.1.0-py3-none-any.whl", hash = "sha256:9eeca80c53594ec0ddc8ce180df9e7aa7e2a9141dc1756a7805f7972801d150d"},
     {file = "openbb_famafrench-1.1.0.tar.gz", hash = "sha256:79420f5a2b24cf7b487c141d0ecff5b8f5f465b5142f9f1524dc54a23e9415ca"},
@@ -3460,7 +3461,7 @@ description = "FINRA extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"finra\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"finra\""
 files = [
     {file = "openbb_finra-1.5.0-py3-none-any.whl", hash = "sha256:88869debfe8844e9d4116bd1df00f37ffc28db2a9f9c0d694fbdfed5d5a28dff"},
     {file = "openbb_finra-1.5.0.tar.gz", hash = "sha256:ecde3da9bb41fe3638eb16a9fafe4628d17773c31b8b298d1be0036d83299280"},
@@ -3476,7 +3477,7 @@ description = "Finviz extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"finviz\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"finviz\""
 files = [
     {file = "openbb_finviz-1.4.0-py3-none-any.whl", hash = "sha256:c74c46ac74bc636a8e0fb6b8b684f442ac637a771db67ce0df5439dc511d8ae7"},
     {file = "openbb_finviz-1.4.0.tar.gz", hash = "sha256:0c557b3c219b71a1fb23b3b41802487659b4624e9a6a99f59593fa3a2cfa029c"},
@@ -3538,7 +3539,7 @@ description = "US Government Data Extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"government-us\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"government-us\""
 files = [
     {file = "openbb_government_us-1.5.0-py3-none-any.whl", hash = "sha256:00f3c6bf53195cc1673a557951d74b944f6b662eb2f439675c1a56fc18eb725b"},
     {file = "openbb_government_us-1.5.0.tar.gz", hash = "sha256:cf4fd05848850b4d0316ea50e7dca33f09d94e426d8a70c2be731d4d088d3e26"},
@@ -3602,7 +3603,7 @@ description = "OpenBB Platform MCP Server"
 optional = true
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "openbb_mcp_server-1.2.0-py3-none-any.whl", hash = "sha256:00a8d4c9ae76b5c3086b8b43799a3b50e48dc117eae93c5edfc4e3cb515a4f68"},
     {file = "openbb_mcp_server-1.2.0.tar.gz", hash = "sha256:ad465ee6f7e9ef38986322ece964d9dd4e5ad9824eb4ebfc26d1e69787b13053"},
@@ -3619,7 +3620,7 @@ description = "Public data on historical S&P Multiples."
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"multpl\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"multpl\""
 files = [
     {file = "openbb_multpl-1.2.0-py3-none-any.whl", hash = "sha256:5da537b28e834b93e1aaf075c87f3cc813a4d9952f2e6c481faf95fbb22b8c6a"},
     {file = "openbb_multpl-1.2.0.tar.gz", hash = "sha256:b13d927841e52e1b652d1c5e543397a08dab454f5f1743ba59d046823d4ea125"},
@@ -3635,7 +3636,7 @@ description = "Nasdaq extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"nasdaq\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"nasdaq\""
 files = [
     {file = "openbb_nasdaq-1.5.0-py3-none-any.whl", hash = "sha256:e63ee9ca866848e9e6a8e1fd272322b71e57c979c1201ea3a214f187fb1eb449"},
     {file = "openbb_nasdaq-1.5.0.tar.gz", hash = "sha256:abe8cb8313196b13cbf00179c0a414fe004fa3a06b1eef99a430298e33f7c7cd"},
@@ -3718,7 +3719,7 @@ description = "Quantitative Analysis extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"quantitative\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"quantitative\""
 files = [
     {file = "openbb_quantitative-1.5.0-py3-none-any.whl", hash = "sha256:b89df99603021a51eb2e871cbd4fe8ec5f6256045bbd2e0fb121aa2f34805d19"},
     {file = "openbb_quantitative-1.5.0.tar.gz", hash = "sha256:7c4d4a765638aee1b3b3b68b3d06091f6d9d99ca65fa7aac819045fa645a8ff3"},
@@ -3772,7 +3773,7 @@ description = "Seeking Alpha extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"seeking-alpha\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"seeking-alpha\""
 files = [
     {file = "openbb_seeking_alpha-1.5.0-py3-none-any.whl", hash = "sha256:25c7a8bef9856799c8a858e60e1287e1a5fa447dee7cb2dedd1ed641f796d237"},
     {file = "openbb_seeking_alpha-1.5.0.tar.gz", hash = "sha256:c969444da7350ef465dbfc5346ce638875f6616f7791c8a00a2449f6dbabb686"},
@@ -3788,7 +3789,7 @@ description = "stockgrid extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "openbb_stockgrid-1.5.0-py3-none-any.whl", hash = "sha256:211b3504cdbcafbcd039e3de60a31b4db406ae9da3f3c5675e28f70362da6ce3"},
     {file = "openbb_stockgrid-1.5.0.tar.gz", hash = "sha256:c645398d3d4117a5b950a7d14aa1395d579ad921b3018193b63ced34ff88b0e5"},
@@ -3805,7 +3806,7 @@ description = "Technical Analysis extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"technical\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"technical\""
 files = [
     {file = "openbb_technical-1.5.0-py3-none-any.whl", hash = "sha256:eeff6021e94bdc1bebb650f24076012ba4d1b329b1b4fb3a49dd952b9d96badc"},
     {file = "openbb_technical-1.5.0.tar.gz", hash = "sha256:e9769178d24a574e77e99aa96950c158e9167181282f1ead435f4ff7975df0ad"},
@@ -3838,7 +3839,7 @@ description = "Unofficial TMX data provider extension for the OpenBB Platform - 
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"tmx\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"tmx\""
 files = [
     {file = "openbb_tmx-1.4.0-py3-none-any.whl", hash = "sha256:d8b2148f1c112d51059b322238c4c786687e7b43ad7a9fb6889b967e793181bd"},
     {file = "openbb_tmx-1.4.0.tar.gz", hash = "sha256:21f28cb89e16f1b9e724dbeb6cc6163fb462e73e7d9e524183028713dee67374"},
@@ -3858,7 +3859,7 @@ description = "Tradier Provider Extension for the OpenBB Platform"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"tradier\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"tradier\""
 files = [
     {file = "openbb_tradier-1.4.0-py3-none-any.whl", hash = "sha256:8a93f9a2d380392c5dae11805d54a14e472b6378f3ec2f60d7b3ee6a5740b085"},
     {file = "openbb_tradier-1.4.0.tar.gz", hash = "sha256:e19b00de0a7166d461be52bc44ea538b6d717bb27601513e27f03b12ea9208dd"},
@@ -3907,7 +3908,7 @@ description = "wsj extension for OpenBB"
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"wsj\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"wsj\""
 files = [
     {file = "openbb_wsj-1.5.0-py3-none-any.whl", hash = "sha256:3f947ed310758d7d22ccfcb65b76aa30927107fa984059dc3ed9b79990cceaea"},
     {file = "openbb_wsj-1.5.0.tar.gz", hash = "sha256:13e7d3a036d3e425b89a713574e4e8663e70462d0cf48ae0817be4d329bdaed7"},
@@ -3974,7 +3975,7 @@ description = "Core utilities for Python packages"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
+markers = "extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\" or extra == \"stockgrid\""
 files = [
     {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
     {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
@@ -4087,7 +4088,7 @@ description = "Fork of pandas-ta for use with NumPy 2 and OpenBB."
 optional = true
 python-versions = "<3.14,>=3.9.21"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
+markers = "extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
 files = [
     {file = "pandas_ta_openbb-0.4.22-py3-none-any.whl", hash = "sha256:ea357cc014952fbb0a2d95edfceffec0a5d8659c02eb2468ab6e11bacfbd5706"},
     {file = "pandas_ta_openbb-0.4.22.tar.gz", hash = "sha256:fdea8000b54c929c904e09ed703171e597d0d57af1cc7318afcff9cb717e8745"},
@@ -4110,7 +4111,7 @@ description = "parse() is the opposite of format()"
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "parse-1.20.2-py2.py3-none-any.whl", hash = "sha256:967095588cb802add9177d0c0b6133b5ba33b1ea9007ca800e526f42a85af558"},
     {file = "parse-1.20.2.tar.gz", hash = "sha256:b41d604d16503c79d81af5165155c0b20f6c8d6c559efa66b4b695c3e5a0a0ce"},
@@ -4123,7 +4124,7 @@ description = "Object-oriented paths"
 optional = true
 python-versions = "<4.0.0,>=3.7.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "pathable-0.4.4-py3-none-any.whl", hash = "sha256:5ae9e94793b6ef5a4cbe0a7ce9dbbefc1eec38df253763fd0aeeacf2762dbbc2"},
     {file = "pathable-0.4.4.tar.gz", hash = "sha256:6905a3cd17804edfac7875b5f6c9142a218c7caef78693c2dbbbfbac186d88b2"},
@@ -4136,7 +4137,7 @@ description = "A Python package for describing statistical models and for buildi
 optional = true
 python-versions = ">=3.6"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
+markers = "extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
 files = [
     {file = "patsy-1.0.1-py2.py3-none-any.whl", hash = "sha256:751fb38f9e97e62312e921a1954b81e1bb2bcda4f5eeabaf94db251ee791509c"},
     {file = "patsy-1.0.1.tar.gz", hash = "sha256:e786a9391eec818c054e359b737bbce692f051aee4c661f4141cc88fb459c0c4"},
@@ -4183,7 +4184,7 @@ description = "An open-source interactive data visualization library for Python"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "plotly-6.3.1-py3-none-any.whl", hash = "sha256:8b4420d1dcf2b040f5983eed433f95732ed24930e496d36eb70d211923532e64"},
     {file = "plotly-6.3.1.tar.gz", hash = "sha256:dd896e3d940e653a7ce0470087e82c2bd903969a55e30d1b01bb389319461bb0"},
@@ -4208,7 +4209,7 @@ description = "plugin and hook calling mechanisms for python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"},
     {file = "pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"},
@@ -4332,12 +4333,12 @@ version = "2.23"
 description = "C parser in Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
-markers = "implementation_name != \"PyPy\""
+groups = ["main", "dev"]
 files = [
     {file = "pycparser-2.23-py3-none-any.whl", hash = "sha256:e5c6e8d3fbad53479cab09ac03729e0a9faf2bee3db8208a550daf5af81a5934"},
     {file = "pycparser-2.23.tar.gz", hash = "sha256:78816d4f24add8f10a06d6f05b4d424ad9e96cfebf68a4ddc99c65c0720d00c2"},
 ]
+markers = {main = "implementation_name != \"PyPy\"", dev = "platform_python_implementation != \"PyPy\" and implementation_name != \"PyPy\""}
 
 [[package]]
 name = "pycurl"
@@ -4548,7 +4549,7 @@ description = "Settings management using Pydantic"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "pydantic_settings-2.11.0-py3-none-any.whl", hash = "sha256:fe2cea3413b9530d10f3a5875adffb17ada5c1e1bab0b2885546d7310415207c"},
     {file = "pydantic_settings-2.11.0.tar.gz", hash = "sha256:d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180"},
@@ -4573,7 +4574,7 @@ description = "Pygments is a syntax highlighting package written in Python."
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"stockgrid\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"stockgrid\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"stockgrid\") and python_version >= \"3.10\""
 files = [
     {file = "pygments-2.19.2-py3-none-any.whl", hash = "sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b"},
     {file = "pygments-2.19.2.tar.gz", hash = "sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"},
@@ -4589,7 +4590,7 @@ description = "High dimensional fixed effect absorption with Python 3"
 optional = true
 python-versions = ">=3.6"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "pyhdfe-0.2.0-py3-none-any.whl", hash = "sha256:5be73689101b97ff9e6e563874747257cdf86cb683159de8e16a5457130fb532"},
     {file = "pyhdfe-0.2.0.tar.gz", hash = "sha256:8cddc5f5a09148d3281fca3c787146a85ecc5a7517be3ae5762bfe507907b7fb"},
@@ -4628,7 +4629,7 @@ description = "A Python package for dealing with Hebrew (Jewish) calendar dates.
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"tmx\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"tmx\""
 files = [
     {file = "pyluach-2.3.0-py3-none-any.whl", hash = "sha256:4497b731aef59508b079dbf5f00bc5bf4329ac45090a6cd37b5a83756f0e69ab"},
     {file = "pyluach-2.3.0.tar.gz", hash = "sha256:ec6e30669d1df50c9ca160486da44a8195bb4c7a5d3d533990d0c5b03accd281"},
@@ -4645,7 +4646,7 @@ description = "A cross-platform clipboard module for Python. (Only handles plain
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "pyperclip-1.11.0-py3-none-any.whl", hash = "sha256:299403e9ff44581cb9ba2ffeed69c7aa96a008622ad0c46cb575ca75b5b84273"},
     {file = "pyperclip-1.11.0.tar.gz", hash = "sha256:244035963e4428530d9e3a6101a1ef97209c6825edab1567beac148ccc1db1b6"},
@@ -4658,7 +4659,7 @@ description = "pytest: simple powerful testing with Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "pytest-8.4.2-py3-none-any.whl", hash = "sha256:872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79"},
     {file = "pytest-8.4.2.tar.gz", hash = "sha256:86c0d0b93306b961d58d62a4db4879f27fe25513d4b969df351abdddb3c30e01"},
@@ -4683,7 +4684,7 @@ description = "Wrap tests with fixtures in freeze_time"
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "extra == \"stockgrid\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"stockgrid\""
 files = [
     {file = "pytest-freezegun-0.4.2.zip", hash = "sha256:19c82d5633751bf3ec92caa481fb5cffaac1787bd485f0df6436fd6242176949"},
     {file = "pytest_freezegun-0.4.2-py2.py3-none-any.whl", hash = "sha256:5318a6bfb8ba4b709c8471c94d0033113877b3ee02da5bfcd917c1889cde99a7"},
@@ -4754,7 +4755,7 @@ description = "Python for Window Extensions"
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "sys_platform == \"win32\" and (platform_python_implementation != \"PyPy\" or extra == \"mcp-server\" or extra == \"all\") and (platform_python_implementation != \"PyPy\" or python_version >= \"3.10\") and (extra == \"charting\" or extra == \"all\" or python_version >= \"3.10\") and (extra == \"charting\" or extra == \"all\" or extra == \"mcp-server\")"
+markers = "sys_platform == \"win32\" and (platform_python_implementation != \"PyPy\" or extra == \"all\" or extra == \"mcp-server\") and (platform_python_implementation != \"PyPy\" or python_version >= \"3.10\") and (extra == \"all\" or extra == \"charting\" or python_version >= \"3.10\") and (extra == \"all\" or extra == \"charting\" or extra == \"mcp-server\")"
 files = [
     {file = "pywin32-311-cp310-cp310-win32.whl", hash = "sha256:d03ff496d2a0cd4a5893504789d4a15399133fe82517455e78bad62efbb7f0a3"},
     {file = "pywin32-311-cp310-cp310-win_amd64.whl", hash = "sha256:797c2772017851984b97180b0bebe4b620bb86328e8a884bb626156295a63b3b"},
@@ -4785,7 +4786,7 @@ description = "YAML parser and emitter for Python"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "PyYAML-6.0.3-cp38-cp38-macosx_10_13_x86_64.whl", hash = "sha256:c2514fceb77bc5e7a2f7adfaa1feb2fb311607c9cb518dbc378688ec73d8292f"},
     {file = "PyYAML-6.0.3-cp38-cp38-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:9c57bb8c96f6d1808c030b1687b9b5fb476abaa47f0db9c0101f5e9f394e97f4"},
@@ -4869,7 +4870,7 @@ description = "A package to get random user agents based filters provided by use
 optional = true
 python-versions = "*"
 groups = ["main"]
-markers = "extra == \"government-us\" or extra == \"all\" or extra == \"nasdaq\" or extra == \"tmx\""
+markers = "extra == \"all\" or extra == \"government-us\" or extra == \"nasdaq\" or extra == \"tmx\""
 files = [
     {file = "random_user_agent-1.0.1-py3-none-any.whl", hash = "sha256:535636a55fb63fe3d74fd0260d854c241d9f2946447026464e578e68eac17dac"},
     {file = "random_user_agent-1.0.1.tar.gz", hash = "sha256:8f8ca26ec8cb1d24ad1758d8b8f700d154064d641dbe9a255cfec42960fbd012"},
@@ -4882,7 +4883,7 @@ description = "JSON Referencing + Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"charting\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"charting\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"charting\") and python_version >= \"3.10\""
 files = [
     {file = "referencing-0.36.2-py3-none-any.whl", hash = "sha256:e8699adbbf8b5c7de96d8ffa0eb5c158b3beafce084968e2ea8bb08c6794dcd0"},
     {file = "referencing-0.36.2.tar.gz", hash = "sha256:df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"},
@@ -5078,7 +5079,7 @@ description = "A pure python RFC3339 validator"
 optional = true
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "rfc3339_validator-0.1.4-py2.py3-none-any.whl", hash = "sha256:24f6ec1eda14ef823da9e36ec7113124b39c04d50a4d3d3a3c2859577e7791fa"},
     {file = "rfc3339_validator-0.1.4.tar.gz", hash = "sha256:138a2abdf93304ad60530167e51d2dfb9549521a836871b88d7f4695d0022f6b"},
@@ -5094,7 +5095,7 @@ description = "Render rich text, tables, progress bars, syntax highlighting, mar
 optional = true
 python-versions = ">=3.8.0"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "rich-14.1.0-py3-none-any.whl", hash = "sha256:536f5f1785986d6dbdea3c75205c473f970777b4a0d6c6dd1b696aa05a3fa04f"},
     {file = "rich-14.1.0.tar.gz", hash = "sha256:e497a48b844b0320d45007cdebfeaeed8db2a4f4bcf49f15e455cfc4af11eaa8"},
@@ -5114,7 +5115,7 @@ description = "A beautiful reStructuredText renderer for rich"
 optional = true
 python-versions = ">=3.6"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "rich_rst-1.3.1-py3-none-any.whl", hash = "sha256:498a74e3896507ab04492d326e794c3ef76e7cda078703aa592d1853d91098c1"},
     {file = "rich_rst-1.3.1.tar.gz", hash = "sha256:fad46e3ba42785ea8c1785e2ceaa56e0ffa32dbe5410dec432f37e4107c4f383"},
@@ -5131,7 +5132,7 @@ description = "Python bindings to Rust's persistent data structures (rpds)"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or (extra == \"mcp-server\" or extra == \"all\" or extra == \"charting\") and python_version >= \"3.10\""
+markers = "extra == \"all\" or extra == \"charting\" or (extra == \"all\" or extra == \"mcp-server\" or extra == \"charting\") and python_version >= \"3.10\""
 files = [
     {file = "rpds_py-0.27.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:68afeec26d42ab3b47e541b272166a0b4400313946871cba3ed3a4fc0cab1cef"},
     {file = "rpds_py-0.27.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:74e5b2f7bb6fa38b1b10546d27acbacf2a022a8b5543efb06cfebc72a59c85be"},
@@ -5326,7 +5327,7 @@ description = "A set of python modules for machine learning and data mining"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"3.10\" and (extra == \"technical\" or extra == \"all\")"
+markers = "python_version < \"3.10\" and (extra == \"all\" or extra == \"technical\")"
 files = [
     {file = "scikit_learn-1.6.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d056391530ccd1e501056160e3c9673b4da4805eb67eb2bdf4e983e1f9c9204e"},
     {file = "scikit_learn-1.6.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:0c8d036eb937dbb568c6242fa598d551d88fb4399c0344d95c001980ec1c7d36"},
@@ -5382,7 +5383,7 @@ description = "A set of python modules for machine learning and data mining"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"technical\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"technical\") and python_version >= \"3.10\""
 files = [
     {file = "scikit_learn-1.7.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:6b33579c10a3081d076ab403df4a4190da4f4432d443521674637677dc91e61f"},
     {file = "scikit_learn-1.7.2-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:36749fb62b3d961b1ce4fedf08fa57a1986cd409eff2d783bca5d4b9b5fce51c"},
@@ -5439,7 +5440,7 @@ description = "Fundamental algorithms for scientific computing in Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version < \"3.10\" and (extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
+markers = "python_version < \"3.10\" and (extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\")"
 files = [
     {file = "scipy-1.13.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:20335853b85e9a49ff7572ab453794298bcf0354d8068c5f6775a0eabf350aca"},
     {file = "scipy-1.13.1-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:d605e9c23906d1994f55ace80e0125c587f96c020037ea6aa98d01b4bd2e222f"},
@@ -5483,7 +5484,7 @@ description = "Fundamental algorithms for scientific computing in Python"
 optional = true
 python-versions = ">=3.10"
 groups = ["main"]
-markers = "(extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\") and python_version >= \"3.10\""
 files = [
     {file = "scipy-1.15.3-cp310-cp310-macosx_10_13_x86_64.whl", hash = "sha256:a345928c86d535060c9c2b25e71e87c39ab2f22fc96e9636bd74d1dbf9de448c"},
     {file = "scipy-1.15.3-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:ad3432cb0f9ed87477a8d97f03b763fd1d57709f1bbde3c9369b1dff5503b253"},
@@ -5548,7 +5549,7 @@ description = "Easily download, build, install, upgrade, and uninstall Python pa
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "setuptools-80.9.0-py3-none-any.whl", hash = "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"},
     {file = "setuptools-80.9.0.tar.gz", hash = "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"},
@@ -5570,7 +5571,7 @@ description = "the blessed package to manage your versions by scm tags"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "setuptools_scm-8.3.1-py3-none-any.whl", hash = "sha256:332ca0d43791b818b841213e76b1971b7711a960761c5bea5fc5cdb5196fbce3"},
     {file = "setuptools_scm-8.3.1.tar.gz", hash = "sha256:3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63"},
@@ -5631,7 +5632,7 @@ description = "SSE plugin for Starlette"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "sse_starlette-3.0.2-py3-none-any.whl", hash = "sha256:16b7cbfddbcd4eaca11f7b586f3b8a080f1afe952c15813455b162edea619e5a"},
     {file = "sse_starlette-3.0.2.tar.gz", hash = "sha256:ccd60b5765ebb3584d0de2d7a6e4f745672581de4f5005ab31c3a25d10b52b3a"},
@@ -5672,7 +5673,7 @@ description = "Statistical computations and models for Python"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
+markers = "extra == \"all\" or extra == \"charting\" or extra == \"econometrics\" or extra == \"quantitative\" or extra == \"technical\""
 files = [
     {file = "statsmodels-0.14.5-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9fc2b5cdc0c95cba894849651fec1fa1511d365e3eb72b0cc75caac44077cd48"},
     {file = "statsmodels-0.14.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:b8d96b0bbaeabd3a557c35cc7249baa9cfbc6dd305c32a9f2cbdd7f46c037e7f"},
@@ -5698,6 +5699,12 @@ files = [
     {file = "statsmodels-0.14.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:5a085d47c8ef5387279a991633883d0e700de2b0acc812d7032d165888627bef"},
     {file = "statsmodels-0.14.5-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:9f866b2ebb2904b47c342d00def83c526ef2eb1df6a9a3c94ba5fe63d0005aec"},
     {file = "statsmodels-0.14.5-cp313-cp313-win_amd64.whl", hash = "sha256:2a06bca03b7a492f88c8106103ab75f1a5ced25de90103a89f3a287518017939"},
+    {file = "statsmodels-0.14.5-cp314-cp314-macosx_10_15_x86_64.whl", hash = "sha256:07c4dad25bbb15864a31b4917a820f6d104bdc24e5ddadcda59027390c3bed9e"},
+    {file = "statsmodels-0.14.5-cp314-cp314-macosx_11_0_arm64.whl", hash = "sha256:babb067c852e966c2c933b79dbb5d0240919d861941a2ef6c0e13321c255528d"},
+    {file = "statsmodels-0.14.5-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:110194b137286173cc676d7bad0119a197778de6478fc6cbdc3b33571165ac1e"},
+    {file = "statsmodels-0.14.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9c8a9c384a60c80731b278e7fd18764364c8817f4995b13a175d636f967823d1"},
+    {file = "statsmodels-0.14.5-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:557df3a870a57248df744fdfcc444ecbc5bdbf1c042b8a8b5d8e3e797830dc2a"},
+    {file = "statsmodels-0.14.5-cp314-cp314-win_amd64.whl", hash = "sha256:95af7a9c4689d514f4341478b891f867766f3da297f514b8c4adf08f4fa61d03"},
     {file = "statsmodels-0.14.5-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b23b8f646dd78ef5e8d775d879208f8dc0a73418b41c16acac37361ff9ab7738"},
     {file = "statsmodels-0.14.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:4e5e26b21d2920905764fb0860957d08b5ba2fae4466ef41b1f7c53ecf9fc7fa"},
     {file = "statsmodels-0.14.5-cp39-cp39-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4a060c7e0841c549c8ce2825fd6687e6757e305d9c11c9a73f6c5a0ce849bb69"},
@@ -5725,7 +5732,7 @@ description = "threadpoolctl"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"technical\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"technical\""
 files = [
     {file = "threadpoolctl-3.6.0-py3-none-any.whl", hash = "sha256:43a0b8fd5a2928500110039e43a5eed8480b918967083ea48dc3ab9f13c4a7fb"},
     {file = "threadpoolctl-3.6.0.tar.gz", hash = "sha256:8ab8b4aa3491d812b623328249fab5302a68d2d71745c8a4c719a2fcaba9f44e"},
@@ -5750,7 +5757,7 @@ description = "A lil' TOML parser"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "(extra == \"stockgrid\" or extra == \"all\" or extra == \"econometrics\") and python_version <= \"3.10\""
+markers = "(extra == \"all\" or extra == \"econometrics\" or extra == \"stockgrid\") and python_version <= \"3.10\""
 files = [
     {file = "tomli-2.2.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:678e4fa69e4575eb77d103de3df8a895e1591b48e740211bd1067378c69e8249"},
     {file = "tomli-2.2.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:023aa114dd824ade0100497eb2318602af309e5a55595f76b626d6d9f3b7b0a6"},
@@ -5793,7 +5800,7 @@ description = "List processing tools and functional utilities"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"tmx\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"tmx\""
 files = [
     {file = "toolz-1.0.0-py3-none-any.whl", hash = "sha256:292c8f1c4e7516bf9086f8850935c799a874039c8bcf959d47b600e4c44a6236"},
     {file = "toolz-1.0.0.tar.gz", hash = "sha256:2c86e3d9a04798ac556793bced838816296a2f085017664e4995cb40a1047a02"},
@@ -5831,7 +5838,7 @@ description = "Traitlets Python configuration system"
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"charting\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"charting\""
 files = [
     {file = "traitlets-5.14.3-py3-none-any.whl", hash = "sha256:b74e89e397b1ed28cc831db7aea759ba6640cb3de13090ca145426688ff1ac4f"},
     {file = "traitlets-5.14.3.tar.gz", hash = "sha256:9ed0579d3502c94b4b3732ac120375cda96f923114522847de4b3bb98b96b6b7"},
@@ -5847,11 +5854,12 @@ version = "4.15.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["main", "dev"]
 files = [
     {file = "typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"},
     {file = "typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"},
 ]
+markers = {dev = "python_version <= \"3.10\""}
 
 [[package]]
 name = "typing-inspection"
@@ -6061,7 +6069,7 @@ description = "The comprehensive WSGI web application library."
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "(extra == \"mcp-server\" or extra == \"all\") and python_version >= \"3.10\""
+markers = "(extra == \"all\" or extra == \"mcp-server\") and python_version >= \"3.10\""
 files = [
     {file = "werkzeug-3.1.1-py3-none-any.whl", hash = "sha256:a71124d1ef06008baafa3d266c02f56e1836a5984afd6dd6c9230669d60d9fb5"},
     {file = "werkzeug-3.1.1.tar.gz", hash = "sha256:8cd39dfbdfc1e051965f156163e2974e52c210f130810e9ad36858f0fd3edad4"},
@@ -6080,7 +6088,7 @@ description = "Module for decorators, wrappers and monkey patching."
 optional = true
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "extra == \"econometrics\" or extra == \"all\""
+markers = "extra == \"all\" or extra == \"econometrics\""
 files = [
     {file = "wrapt-1.17.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:88bbae4d40d5a46142e70d58bf664a89b6b4befaea7b2ecc14e03cedb8e06c04"},
     {file = "wrapt-1.17.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:e6b13af258d6a9ad602d57d889f83b9d5543acd471eee12eb51f5b01f8eb1bc2"},
